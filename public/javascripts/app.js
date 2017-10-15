@@ -93,5 +93,10 @@ $(function () {
     doSearch();
   }
   
+  $(document).on('click', 'a[data-image]', function(e) {
+    e.preventDefault();
+    var url = $(this).data('image-url');
+    window.open(url, '_blank');
+  })
   
 });
