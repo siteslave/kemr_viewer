@@ -150,9 +150,9 @@ router.get('/emr/detail/:vn', function (req, res, next) {
 
 router.get('/emr/view-image/:imageId', (req, res, next) => {
   let imageId = req.params.imageId;
-  let dbDocs = req.dbDocs;
+  let db = req.dbEmr;
   if (imageId) {
-    emrModel.getImageData(dbDocs, imageId)
+    emrModel.getImageData(db, imageId)
       .then((results) => {
         let filePath = path.join(req.imagePath, results[0].file_path);
         let data = fs.readFileSync(filePath);
@@ -172,7 +172,7 @@ router.get('/emr/view-image/:imageId', (req, res, next) => {
         })
       })
       .finally(() => {
-        dbDocs.destroy();
+        db.destroy();
       })
   } else {
     res.send({ ok: false, error: 'ไม่พบรหัสรูปภาพ' })
