@@ -68,7 +68,7 @@ var configEmr = {
 
 app.use(function (req, res, next) {
 
-  req.imagePath = '/var/db/images';
+  req.imagePath = process.env.IMAGE_PATH;
 
   req.dbHOS = require('knex')({
     client: 'mysql',

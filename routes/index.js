@@ -113,8 +113,8 @@ router.get('/emr/detail/:vn', function (req, res, next) {
             image_type: v.image_type,
             file_name: v.file_name,
             mime_type: v.mime_type,
-            // url: '/emr/view-image/' + v.id
-            url: 'http://via.placeholder.com/350x150'
+            url: '/emr/view-image/' + v.id
+            // url: 'http://via.placeholder.com/350x150'
           };
 
           console.log(v);
